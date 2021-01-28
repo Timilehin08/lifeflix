@@ -1,0 +1,57 @@
+<header>
+  <a class="logo" [routerLink]="['/']">
+    <img src="{{ logo }}"  alt="logo"  width="30" height="30"/>
+    <span>
+      MB
+    </span>
+  </a>
+
+  <span class="search" title="Search for movies" *ngIf="!isMobile && showSearch()">
+    <i class="fas fa-search">
+      <i class="material-icons">
+        search
+      </i>
+      <input (input)="handleSearch($event.target.value)" type="text" name="search" placeholder="Search movie titles" />
+    </i>
+  </span>
+
+  <nav class="nav-menu desktop" *ngIf="!isMobile">
+    <ol>
+      <li *ngIf="isLogin && user.username"><em style="font-size: 0.9rem;">Welcome <b>{{ user.username }}</b></em></li>
+      <li><a [routerLink]="['/']" style="background: none;"><i class="material-icons">
+        home
+      </i></a></li>
+      <li *ngIf="isLogin" ><a [routerLink]="['/favorites']" routerLinkActive="active">Favorites</a></li>
+      <li *ngIf="!isLogin" ><a [routerLink]="['/login']" routerLinkActive="active">Login</a></li>
+      <li *ngIf="!isLogin" ><a [routerLink]="['/register']" routerLinkActive="active">Register</a></li>
+      <li *ngIf="isLogin" (click)="logOut()"><a [routerLink]="['/']">Logout</a></li>
+    </ol>
+  </nav>
+
+  <nav class="nav-menu mobile" (click)="closeMenu($event)" *ngIf="isMobile && menuOpen" >
+      <ol>
+        <li *ngIf="isLogin && user.username"><a><em style="font-size: 0.9rem;">Welcome <b>{{ user.username }}</b></em></a></li>
+        <li><a [routerLink]="['/']" style="background: none;"><i class="material-icons">
+              home
+            </i></a></li>
+        <li *ngIf="isLogin" (click)="closeMenu($event)"><a [routerLink]="['/favorites']" routerLinkActive="active">Favorites</a></li>
+        <li *ngIf="!isLogin"><a [routerLink]="['/login']" routerLinkActive="active" (click)="closeMenu($event)">Login</a></li>
+        <li *ngIf="!isLogin"><a [routerLink]="['/register']" routerLinkActive="active" (click)="closeMenu($event)">Register</a></li>
+        <li *ngIf="isLogin" (click)="logOut()"><a [routerLink]="['/']">Logout</a></li>
+        <li *ngIf="showSearch()" class="searchy" (click)="closeMenu($event)"><a><span class="search" title="Search for movies" *ngIf="isMobile">
+          <i class="fas fa-search searchy">
+            <i class="material-icons searchy" (click)="closeMenu($event)">
+              search
+            </i>
+            <input class="searchy" (click)="closeMenu($event)" (input)="handleSearch($event.target.value)" type="text" name="search movie titles" placeholder="Search" />
+          </i>
+        </span></a></li>
+      </ol>
+    </nav>
+    <i class="material-icons menu-ico" *ngIf="!menuOpen && isMobile" (click)="closeMenu($event)">
+      menu
+    </i>
+    <i class="material-icons menu-ico" *ngIf="menuOpen && isMobile" (click)="closeMenu($event)">
+      close
+    </i>
+</header>

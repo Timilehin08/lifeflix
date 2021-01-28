@@ -1,0 +1,9 @@
+<div class="hero">
+  <section>
+    <h1 style="text-align: center; padding: 20px 0;">Favorite Movies</h1>
+    <app-movie-card *ngIf="favMovies" [movies]="(searched.length && searched) || favMovies"></app-movie-card>
+  </section>
+</div>
+
+<section *ngIf="!favMovies || !favMovies.length" class="fav no-data">
+</section>

@@ -1,0 +1,34 @@
+<section *ngIf="movies" class="card-container">
+    <div  class="sub-container" *ngFor="let movie of movies">
+    <div class="img-container" [routerLink]="['/single-view', movie.id]" title="Click to watch trailer">
+      <img src="{{ movie.Poster }}" alt="cover" />
+    </div>
+
+    <p>
+      <b>{{ movie?.Title}}</b> &nbsp; <span>{{ movie.Year }}</span>
+    </p>
+
+      <p>
+        {{ movie?.Genre }}
+      </p>
+
+      <p>
+        {{ movie?.Runtime }}
+      </p>
+
+      <div>
+        <p *ngFor="let rating of movie.Ratings"><i class="material-icons star">
+            star
+          </i>{{ rating?.Source || 'N/A' }} : {{ ' ' + rating?.Value }}</p>
+      </div>
+      <div *ngIf="isLoggedIn" style="text-align: center;" title="Favorite this movie">
+          <i *ngIf="checkFavorites(movie.id)" (click)="removeFavoriteMovie(movie.id)" class="material-icons fav favorite">
+            favorite
+          </i>
+
+          <i *ngIf="!checkFavorites(movie.id)" (click)="favoriteMovie(movie.id)" class="material-icons fav">
+            favorite_border
+          </i>
+      </div>
+    </div>
+</section>

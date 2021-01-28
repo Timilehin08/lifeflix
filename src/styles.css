@@ -1,0 +1,94 @@
+* {
+  padding: 0;
+  margin: 0;
+  border: none;
+  list-style: none;
+  text-decoration: none;
+  box-sizing: border-box;
+  outline: none;
+}
+
+:root {
+  --primary-color: #a37c55;
+  --neutral-color: #333f4f;
+  --secondary-color: #ffffff;
+}
+
+body {
+  font-family: "Dosis", sans-serif;
+  background: var(--neutral-color);
+  color: var(--secondary-color);
+  overflow: auto;
+  scroll-behavior: smooth;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 12pt;
+}
+
+a {
+  cursor: pointer;
+}
+
+.hero, .single-view, .not-found {
+  padding-top: 70px;
+}
+
+.no-data {
+  width: 100vw;
+  height: 100vh;
+  background: url('./assets/misc/no-data.png');
+  background-size: 40%;
+  background-repeat: no-repeat;
+  background-position-x: center;
+  background-position-y: center;
+}
+
+.fav.no-data {
+  width: 100%;
+  height: 50vh;
+  background-size: 30%;
+}
+
+.not-found {
+  width: 100vw;
+  height: 100vh;
+  background: url('./assets/misc/not-found.png');
+  background-size: 40%;
+  background-repeat: no-repeat;
+  background-position-x: center;
+  background-position-y: center;
+}
+
+.single-view .material-icons.fav,
+.hero .material-icons.fav {
+    font-size: 2rem;
+    display: inline-block;
+    padding: 10px;
+}
+
+.single-view  .material-icons.favorite,
+.hero .material-icons.favorite {
+  color: red;
+}
+
+.single-view  .material-icons.fav:hover,
+.hero  .material-icons.fav:hover {
+  color: red;
+  cursor: pointer;
+
+  animation: heart-beat 0.5s ease-in-out infinite;
+}
+
+@keyframes heart-beat {
+  0% {
+    font-size: 1.8rem;
+    position: relative;
+  }
+
+  100% {
+    font-size: 2rem;
+    position: relative;
+  }
+}

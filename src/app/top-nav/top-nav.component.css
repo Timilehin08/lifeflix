@@ -1,0 +1,127 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  padding: 10px 0px;
+  background: var(--neutral-color);
+  z-index: 100;
+  box-shadow: 0.5px 0.3px 2px var(--primary-color);
+}
+
+.logo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: var(--secondary-color);
+  margin-left: 20px;
+}
+
+.search .fa-search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+.search .fa-search input {
+  width: 0px;
+  background: none;
+
+  transition-property: all;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-in-out;
+}
+
+.search .fa-search:hover input,
+.search .fa-search input:focus {
+  width: 260px;
+  padding: 10px 20px;
+  border-radius: 10px;
+  display: inline-block;
+  margin-left: 5px;
+  background: white;
+}
+
+a:first-child .material-icons:hover {
+  color: var(--primary-color);
+}
+.nav-menu ol {
+  display: flex;
+}
+
+.nav-menu ol li a {
+  color: var(--secondary-color);
+  padding: 10px 20px;
+
+  transition-property: all;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-in-out;
+}
+
+.nav-menu ol li a:hover, .active {
+  background: var(--primary-color);
+}
+
+.nav-menu.mobile {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  padding: 10px 0;
+  z-index: 150;
+  background: #333f4f79;
+
+  animation: menuOpen 0.2s ease-in-out forwards;
+}
+.nav-menu.mobile ol {
+  margin-top: 60px;
+  background: var(--neutral-color);
+}
+
+@keyframes menuOpen {
+  0% {
+    transform: translateY(-3000px);
+  }
+
+   100%{
+    transform: translateY(0px);
+  }
+}
+
+.nav-menu.mobile ol li a {
+  padding: 10px 0;
+}
+
+.nav-menu.mobile ol {
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-menu.mobile ol li:first-child {
+  border-top: 1px solid #a37c55;
+}
+
+.nav-menu.mobile ol li {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid #a37c55;
+}
+.nav-menu.mobile ol li a {
+  width: 100%;
+  text-align: center;
+}
+
+header .menu-ico {
+  display: inline-block;
+  padding-right: 20px;
+}
+
+.nav-menu.mobile .menu-ico:hover {
+  color: var(--primary-color);
+}

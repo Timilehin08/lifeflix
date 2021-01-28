@@ -1,0 +1,38 @@
+<section class="single-view">
+  <div *ngIf="movie">
+    <section class="movie-details">
+    <app-video-frame [source]="movie.videoURL"></app-video-frame>
+
+      <div class="sub-details">
+        <img src="{{ movie.Poster }}" alt="poster" />
+        <aside>
+          <h1>{{ movie.Title }} &nbsp; <span>{{ movie.Year }}</span></h1>
+          <p><b>Runtime:</b> &nbsp; {{ movie.Runtime }}</p>
+          <p><b>Released:</b> &nbsp; {{ movie.Released }}</p>
+          <p><b>Rated:</b> &nbsp; {{ movie.Rated }}</p>
+          <p><b>Actors:</b> &nbsp; {{ movie.Actors }}</p>
+          <p><b>Director:</b> &nbsp; {{ movie.Director }}</p>
+          <p><b>Genre:</b> &nbsp; {{ movie.Genre }}</p>
+          <p><b>Plot:</b> &nbsp; {{ movie.Plot }}</p>
+          <p><b>Language:</b> &nbsp; {{ movie.Language }}</p>
+          <p><b>Country:</b> &nbsp; {{ movie.Country }}</p>
+          <p><b>Writer:</b> &nbsp; {{ movie.Writer }}</p>
+          <p><b>Awards:</b> &nbsp; {{ movie.Awards }}</p>
+          <div>
+            <p *ngFor="let rating of movie.Ratings"><i class="material-icons">
+                star
+              </i>{{ rating['Source'] || 'N/A' }} : {{ ' ' + rating['Value'] }}</p>
+          </div>
+
+          <i *ngIf="favorite && isLoggedIn" (click)="removeFavoriteMovie(movie.id)" class="material-icons fav favorite">
+            favorite
+          </i>
+
+          <i *ngIf="!favorite && isLoggedIn" (click)="favoriteMovie(movie.id)" class="material-icons fav">
+            favorite_border
+          </i>
+        </aside>
+      </div>
+    </section>
+  </div>
+</section>

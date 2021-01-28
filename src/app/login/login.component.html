@@ -1,0 +1,11 @@
+<section class="login">
+  <h1>Login</h1>
+  <form (submit)="handleSubmit($event)">
+    <p>Email</p>
+    <input type="email" placeholder="Email" name="email" (input)="handleInput($event)" />
+    <p>Password</p>
+    <input type="password" placeholder="Password" name="password" (input)="handleInput($event)" />
+      <em style="color: red; font-size: 0.8rem;" *ngIf="isInvalid">Wrong email or password</em>
+    <button type="submit">Login</button>
+  </form>
+</section>

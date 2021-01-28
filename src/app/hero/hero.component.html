@@ -1,0 +1,47 @@
+<div class="hero">
+  <section class="slider-container">
+    <div class="button-parent">
+      <button class="previous" type="button" (click)="prevBtn()">
+        <i class="material-icons">
+          chevron_left
+        </i>
+      </button>
+      <button class="forward" type="button" (click)="nextBtn()">
+        <i class="material-icons">
+          chevron_right
+        </i>
+      </button>
+    </div>
+
+    <div class="arrow-container">
+      <i (click)="scrollDown()" class="material-icons arrow-down" title="scroll down to view more">
+        keyboard_arrow_down
+      </i>
+    </div>
+    <div class="slide" #slide>
+      <img src="../../assets/wallpapers/14.png" alt="clone" id="lastClone" />
+      <img src="../../assets/wallpapers/1.png" alt="movie wallpaper" #image/>
+      <img src="../../assets/wallpapers/2.png" alt="movie wallpaper" />
+      <img src="../../assets/wallpapers/3.png" alt="movie wallpaper" />
+      <img src="../../assets/wallpapers/4.png" alt="movie wallpaper" />
+      <img src="../../assets/wallpapers/5.png" alt="movie wallpaper" />
+      <img src="../../assets/wallpapers/6.png" alt="movie wallpaper" />
+      <img src="../../assets/wallpapers/7.png" alt="movie wallpaper" />
+      <img src="../../assets/wallpapers/8.png" alt="movie wallpaper" />
+      <img src="../../assets/wallpapers/9.png" alt="movie wallpaper" />
+      <img src="../../assets/wallpapers/10.png" alt="movie wallpaper" />
+      <img src="../../assets/wallpapers/11.png" alt="movie wallpaper" />
+      <img src="../../assets/wallpapers/12.png" alt="movie wallpaper" />
+      <img src="../../assets/wallpapers/13.png" alt="movie wallpaper" />
+      <img src="../../assets/wallpapers/14.png" alt="movie wallpaper" />
+      <img src="../../assets/wallpapers/1.png" alt="clone" id="firstClone" />
+    </div>
+  </section>
+  <section>
+        <h1 style="text-align: center; padding: 20px 0;">Movies</h1>
+    <app-movie-card *ngIf="movies" [movies]="searchedMovies || movies"></app-movie-card>
+  </section>
+</div>
+
+  <section *ngIf="!movies" class="no-data">
+  </section>

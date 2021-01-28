@@ -1,0 +1,15 @@
+<section class="register" (submit)="handleSubmit($event)">
+  <h1>Register</h1>
+  <form>
+    <p>Email</p>
+    <input type="email" (input)="handleInput($event)" required [value]="registratonForm.email" placeholder="Email" name="email" />
+    <p>Username</p>
+    <input type="text" (input)="handleInput($event)" required [value]="registratonForm.username" placeholder="Username" name="username" />
+    <p>Password</p>
+    <input type="password" (input)="handleInput($event)" required [value]="registratonForm.password" placeholder="Password" name="password" />
+    <p>Confirm Password</p>
+    <input type="password" (input)="handleInput($event)" required [value]="registratonForm.confirmPassword" placeholder="Confirm password" name="confirmPassword" />
+    <em style="color: red; font-size: 0.8rem;" *ngIf="!isPasswordSimilar">Password must match</em>
+    <button type="submit">Register</button>
+  </form>
+</section>

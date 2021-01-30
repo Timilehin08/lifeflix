@@ -8,7 +8,7 @@ const app = express();
 app.use(express.static('./dist/lifeflix'));
 
 app.get('/*', (req, res) =>
-    res.sendFile('index.html', {root: 'dist/lifeflix/'}),
+    res.sendFile('index.html', {root: './front-end/dist/lifeflix/'}), //load the single view file (angular will handle the page changes on the front-end
 );
 
 // Start the app by listening on the default Heroku port
